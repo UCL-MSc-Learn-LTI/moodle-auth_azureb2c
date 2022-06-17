@@ -100,9 +100,9 @@ class base {
 
         // B2C provides custom field mapping, skip azureb2c mapping if B2C is present.
         $o365installed = $DB->get_record('config_plugins', ['plugin' => 'local_o365', 'name' => 'version']);
-        if (!empty($o365installed)) {
-            return [];
-        }
+        // if (!empty($o365installed)) {
+        //     return [];
+        // }
 
         $userinfo = ['idnumber' => $username];
 
@@ -118,8 +118,8 @@ class base {
 
         $email = $idtoken->claim('emails');
         if (!empty($email)) {
-             $userinfo['email'] = $email[0];
-             //$userinfo['email'] = $email;
+             // $userinfo['email'] = $email[0];
+             $userinfo['email'] = $email;
         }
 
         if (empty($userinfo['email'])) {
