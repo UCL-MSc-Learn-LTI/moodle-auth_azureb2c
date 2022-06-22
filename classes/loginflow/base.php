@@ -116,7 +116,7 @@ class base {
             $userinfo['lastname'] = $lastname;
         }
 
-        $email = $idtoken->claim('emails');
+        $email = $idtoken->claim('email');
         if (!empty($email)) {
              // $userinfo['email'] = $email[0];
              $userinfo['email'] = $email;
