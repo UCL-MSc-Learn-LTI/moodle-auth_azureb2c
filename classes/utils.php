@@ -42,10 +42,13 @@ class utils {
         $caller = $callingclass.'::'.$callingfunc.':'.$callingline;
 
         $result = @json_decode($response, true);
+        \auth_azureb2c\utils::debug('result is ', 'utils::process_json', $result);
         if (empty($result) || !is_array($result)) {
             self::debug('Bad response received', $caller, $response);
             throw new \moodle_exception('errorazureb2ccall', 'auth_azureb2c');
         }
+
+        \auth_azureb2c\utils::debug('result is past first check', 'utils::process_json', $result);
 
         if (isset($result['error'])) {
             $errmsg = 'Error response received.';

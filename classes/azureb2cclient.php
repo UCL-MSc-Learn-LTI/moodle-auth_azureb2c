@@ -252,6 +252,7 @@ class azureb2cclient {
         ];
 
         $returned = $this->httpclient->post($this->endpoints['token'], $params);
+        \auth_azureb2c\utils::debug('Checking returned', 'azureb2cclient::tokenrequest', $returned);
 
         return \auth_azureb2c\utils::process_json_response($returned, ['id_token' => null]);
     }
