@@ -40,7 +40,7 @@ class utils {
         $callingfunc = (isset($backtrace[1]['function'])) ? $backtrace[1]['function'] : '?';
         $callingline = (isset($backtrace[0]['line'])) ? $backtrace[0]['line'] : '?';
         $caller = $callingclass.'::'.$callingfunc.':'.$callingline;
-
+        self::debug('Check result', $caller, $response);
         $result = @json_decode($response, true);
         self::debug('Check result', $caller, $result);
         if (empty($result) || !is_array($result)) {
